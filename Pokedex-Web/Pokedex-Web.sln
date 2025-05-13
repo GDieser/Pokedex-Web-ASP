@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pokedex", "Pokedex\Pokedex.csproj", "{DDD75206-5EAB-487A-B482-B4198D04705E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{81C19711-36E0-4299-BE67-03E9C8D25A76}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicio", "Servicio\Servicio.csproj", "{A166B18B-E9DB-4A5B-918D-7D907FE75D25}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DDD75206-5EAB-487A-B482-B4198D04705E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDD75206-5EAB-487A-B482-B4198D04705E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDD75206-5EAB-487A-B482-B4198D04705E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDD75206-5EAB-487A-B482-B4198D04705E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81C19711-36E0-4299-BE67-03E9C8D25A76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81C19711-36E0-4299-BE67-03E9C8D25A76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81C19711-36E0-4299-BE67-03E9C8D25A76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81C19711-36E0-4299-BE67-03E9C8D25A76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A166B18B-E9DB-4A5B-918D-7D907FE75D25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A166B18B-E9DB-4A5B-918D-7D907FE75D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A166B18B-E9DB-4A5B-918D-7D907FE75D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A166B18B-E9DB-4A5B-918D-7D907FE75D25}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
