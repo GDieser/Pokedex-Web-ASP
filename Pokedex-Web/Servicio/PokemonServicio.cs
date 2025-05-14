@@ -10,6 +10,59 @@ namespace Servicio
 {
     public class PokemonServicio
     {
+        public List<Pokemon> listarConSP()
+        {
+            List<Pokemon> lista = new List<Pokemon>();
+            AccesoDatos datos = new AccesoDatos();
+
+            //string consulta = "SELECT Numero, Nombre, P.Descripcion, UrlImagen, E.Descripcion Tipo, D.Descripcion Debilidad, P.IdTipo, P.IdDebilidad, P.Id FROM POKEMONS P, ELEMENTOS E, ELEMENTOS D  WHERE E.Id = P.IdTipo AND D.Id = P.IdDebilidad AND P.Activo = 1";
+
+            try
+            {
+                //datos.setearConsulta(consulta);
+
+                datos.seterarProcedimiento("StoredListar");
+                
+                datos.ejecutarLectura();
+
+                while (datos.Lector.Read())
+                {
+                    Pokemon aux = new Pokemon();
+
+                    aux.Id = (int)datos.Lector["Id"];
+                    aux.Numero = datos.Lector.GetInt32(0);/* Opcion 1 */
+                    aux.Nombre = (string)datos.Lector["Nombre"]; /* Opcion 2 */
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+
+                    //Opciones para ingresos NULL (opcion1)
+                    /*if(!(lector.IsDBNull(lector.GetOrdinal("UrlImagen"))))
+                        aux.UrlImagen = (string)lector["UrlImagen"];*/
+
+                    //Opcion 2
+                    if (!(datos.Lector["UrlImagen"] is DBNull))
+                        aux.UrlImagen = (string)datos.Lector["UrlImagen"];
+
+                    aux.Tipo = new Elemento();
+                    aux.Tipo.Id = (int)datos.Lector["IdTipo"];
+                    aux.Tipo.Descripcion = (string)datos.Lector["Tipo"];
+
+                    aux.Debilidad = new Elemento();
+                    aux.Debilidad.Id = (int)datos.Lector["IdDebilidad"];
+                    aux.Debilidad.Descripcion = (string)datos.Lector["Debilidad"];
+
+
+                    lista.Add(aux);
+                }
+
+                datos.cerrarConexion();
+                return lista;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
         public List<Pokemon> listar()
         {
             List<Pokemon> lista = new List<Pokemon>();
