@@ -15,12 +15,12 @@ namespace Pokedex
     {
 
         /// <summary>
-        /// dgvPokemon control.
+        /// dgvPokemons control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvPokemon;
+        protected global::System.Web.UI.WebControls.GridView dgvPokemons;
     }
 }

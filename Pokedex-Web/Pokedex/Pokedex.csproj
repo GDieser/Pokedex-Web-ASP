@@ -69,6 +69,7 @@
   <ItemGroup>
     <Content Include="Default.aspx" />
     <Content Include="Detalles.aspx" />
+    <Content Include="FormularioPokemon.aspx" />
     <Content Include="PokemonsLista.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -86,6 +87,13 @@
     </Compile>
     <Compile Include="Detalles.aspx.designer.cs">
       <DependentUpon>Detalles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormularioPokemon.aspx.cs">
+      <DependentUpon>FormularioPokemon.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormularioPokemon.aspx.designer.cs">
+      <DependentUpon>FormularioPokemon.aspx</DependentUpon>
     </Compile>
     <Compile Include="Master.Master.cs">
       <DependentUpon>Master.Master</DependentUpon>
