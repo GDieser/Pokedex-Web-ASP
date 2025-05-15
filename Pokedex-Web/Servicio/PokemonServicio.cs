@@ -63,7 +63,38 @@ namespace Servicio
                 throw ex;
             }
         }
-        public List<Pokemon> listar()
+
+        public void agregarConSP(Pokemon nuevo)
+        {
+            AccesoDatos datos = new AccesoDatos();
+
+            try
+            {
+                datos.seterarProcedimiento("storedAltaPokemon");
+                datos.setearParametro("@numero", nuevo.Numero);
+                datos.setearParametro("@nombre", nuevo.Nombre);
+                datos.setearParametro("@desc", nuevo.Descripcion);
+                datos.setearParametro("@img", nuevo.UrlImagen);
+                datos.setearParametro("@idTipo", nuevo.Tipo.Id);
+                datos.setearParametro("@idDebilidad", nuevo.Debilidad.Id);
+
+
+
+                //datos.setearParametro("@idEvolucion", null);
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+
+        public List<Pokemon> listar(string id = "")
         {
             List<Pokemon> lista = new List<Pokemon>();
 
@@ -71,7 +102,7 @@ namespace Servicio
             SqlCommand comando = new SqlCommand();
             SqlDataReader lector;
 
-            string consulta = "SELECT Numero, Nombre, P.Descripcion, UrlImagen, E.Descripcion Tipo, D.Descripcion Debilidad, P.IdTipo, P.IdDebilidad, P.Id FROM POKEMONS P, ELEMENTOS E, ELEMENTOS D  WHERE E.Id = P.IdTipo AND D.Id = P.IdDebilidad AND P.Activo = 1";
+            string consulta = "SELECT Numero, Nombre, P.Descripcion, UrlImagen, E.Descripcion Tipo, D.Descripcion Debilidad, P.IdTipo, P.IdDebilidad, P.Id FROM POKEMONS P, ELEMENTOS E, ELEMENTOS D  WHERE E.Id = P.IdTipo AND D.Id = P.IdDebilidad AND P.Activo = 1 ";
 
             try
             {
@@ -79,6 +110,8 @@ namespace Servicio
                 comando.CommandType = System.Data.CommandType.Text;
                 comando.CommandText = consulta;
                 comando.Connection = conexion;
+                if (id != "")
+                    comando.CommandText += " and P.Id = " + id;
 
                 conexion.Open();
                 lector = comando.ExecuteReader();
@@ -151,6 +184,34 @@ namespace Servicio
                 datos.cerrarConexion();
             }
 
+        }
+
+        public void modificarConSp(Pokemon pokemon)
+        {
+
+            AccesoDatos acceso = new AccesoDatos();
+            try
+            {
+                acceso.seterarProcedimiento("storedModificarPokemon");
+                acceso.setearParametro("@numero", pokemon.Numero);
+                acceso.setearParametro("@nombre", pokemon.Nombre);
+                acceso.setearParametro("@desc", pokemon.Descripcion);
+                acceso.setearParametro("@img", pokemon.UrlImagen);
+                acceso.setearParametro("@idTipo", pokemon.Tipo.Id);
+                acceso.setearParametro("@idDebilidad", pokemon.Debilidad.Id);
+                acceso.setearParametro("@id", pokemon.Id);
+
+                acceso.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                acceso.cerrarConexion();
+            }
         }
 
         public void modificar(Pokemon pokemon)
