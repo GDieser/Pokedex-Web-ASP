@@ -26,17 +26,26 @@
 
                         <a class="nav-link active" aria-current="page" href="Default.aspx">Home</a>
                         <a class="nav-link active" aria-current="page" href="PokemonsLista.aspx">Lista</a>
-                        <a class="nav-link active" aria-current="page" href="Favoritos.aspx">Favoritos</a>
-                        <a class="nav-link active" aria-current="page" href="MiPerfil.aspx">Mi Perfil</a>
+                        <a class="nav-link active" aria-current="page" href="Favorito.aspx">Favoritos</a>
+                        <a class="nav-link active" aria-current="page" href="Perfil.aspx">Mi Perfil</a>
 
 
                     </div>
 
                 </div>
                 <div class="d-flex">
-                    <a href="Login.aspx" class="btn btn-success me-2">Login</a>
-                    <a href="Registro.aspx" class="btn btn-outline-primary me-2" hreflang="Registro.aspx">Registrarse</a>
-                    <div style="background-color: gray; height: 40px; width: 40px; border-radius: 50%;"></div>
+                    <% if (!Servicio.Seguridad.sesionActiva(Session["trainee"])){ %>
+                            <a href="Login.aspx" class="btn btn-success me-2">Login</a>
+                            <a href="Registro.aspx" class="btn btn-outline-primary me-2">Registrarse</a>
+                    <%
+                       }
+                       else {
+                    %>
+                            <asp:Button Text="Salir" ID="btnSalir" cssclass="btn btn-outline-primary me-2" OnClick="btnSalir_Click" runat="server" />
+                    <%} %>
+                    <asp:Image ID="imgPerfil" style="height:40px; width:40px; border-radius:50%;" 
+                        ImageUrl="https://i.pinimg.com/222x/57/70/f0/5770f01a32c3c53e90ecda61483ccb08.jpg" 
+                        runat="server" />
                 </div>
             </div>
         </nav>
