@@ -13,15 +13,15 @@
             </div>
             <div class="mb-3">
                 <label class="form-label">Nombre</label>
-                <asp:TextBox runat="server" CssClass="form-control" ID="txtNombre" TextMode="Password" />
+                <asp:TextBox runat="server" CssClass="form-control" ID="txtNombre"/>
             </div>
             <div class="mb-3">
                 <label class="form-label">Apellido</label>
-                <asp:TextBox runat="server" CssClass="form-control" ID="txtApellido" TextMode="Password" />
+                <asp:TextBox runat="server" CssClass="form-control" ID="txtApellido"/>
             </div>
             <div class="mb-3">
                 <label class="form-label">Fecha de Nacimiento</label>
-                <asp:TextBox runat="server" CssClass="form-control" ID="txtFechaNacimiento" />
+                <asp:TextBox runat="server" CssClass="form-control" ID="txtFechaNacimiento" TextMode="Date" />
             </div>
 
         </div>
@@ -38,7 +38,7 @@
     </div>
     <div class="row">
         <div class="col-md-4">
-            <asp:Button Text="Guardar" CssClass="btn btn-primary" ID="btnGuardar" runat="server" />
+            <asp:Button Text="Guardar" CssClass="btn btn-primary" ID="btnGuardar" OnClick="btnGuardar_Click" runat="server" />
             <a href="/">Regresar</a>
         </div>
     </div>
