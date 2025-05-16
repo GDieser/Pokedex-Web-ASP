@@ -24,5 +24,7 @@ namespace Dominio
 
         public Elemento Debilidad { get; set; }
 
+        public bool Activo { get; set; }
+
     }
 }

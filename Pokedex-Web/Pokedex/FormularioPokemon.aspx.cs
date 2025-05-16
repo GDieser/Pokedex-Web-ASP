@@ -42,6 +42,11 @@ namespace Pokedex
                     //List<Pokemon> lista = servicio.listar(id);
                     //Pokemon selec = lista[0];
                     Pokemon selec = (servicio.listar(id))[0];
+
+                    //guardo en session
+                    Session.Add("pokeSelec",selec);
+
+                    txtId.Text = id;
                     txtNombre.Text = selec.Nombre;
                     txtDescripcion.Text = selec.Descripcion;
                     txtImagenUrl.Text = selec.UrlImagen;
@@ -51,6 +56,10 @@ namespace Pokedex
                     ddlDebilidad.SelectedValue = selec.Debilidad.Id.ToString();
 
                     txtImagenUrl_TextChanged(sender, e);
+
+                    //conf acciones
+                    if (!selec.Activo)
+                        btnInacticar.Text = "Reactivar";
 
                 }
 
@@ -118,6 +127,24 @@ namespace Pokedex
                     servicio.eliminar(int.Parse(txtId.Text));
                     Response.Redirect("PokemonsLista.aspx");
                 }
+            }
+            catch (Exception ex)
+            {
+
+                Session.Add("error", ex);
+            }
+        }
+
+        protected void btnInacticar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                PokemonServicio servicio = new PokemonServicio();
+                Pokemon selec = (Pokemon)Session["pokeSelec"];
+
+                servicio.eliminarLogico(selec.Id, !selec.Activo);
+
+                Response.Redirect("PokemonsLista.aspx");
             }
             catch (Exception ex)
             {
