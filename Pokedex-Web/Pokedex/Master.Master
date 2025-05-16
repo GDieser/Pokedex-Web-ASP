@@ -26,7 +26,17 @@
 
                         <a class="nav-link active" aria-current="page" href="Default.aspx">Home</a>
                         <a class="nav-link active" aria-current="page" href="PokemonsLista.aspx">Lista</a>
+                        <a class="nav-link active" aria-current="page" href="Favoritos.aspx">Favoritos</a>
+                        <a class="nav-link active" aria-current="page" href="MiPerfil.aspx">Mi Perfil</a>
+
+
                     </div>
+
+                </div>
+                <div class="d-flex">
+                    <a href="Login.aspx" class="btn btn-success me-2">Login</a>
+                    <a href="Registro.aspx" class="btn btn-outline-primary me-2" hreflang="Registro.aspx">Registrarse</a>
+                    <div style="background-color: gray; height: 40px; width: 40px; border-radius: 50%;"></div>
                 </div>
             </div>
         </nav>

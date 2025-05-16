@@ -25,6 +25,8 @@ namespace Servicio
 
         }
 
+
+
         public void setearConsulta(string consulta)
         { 
             comando.CommandType = System.Data.CommandType.Text;
@@ -59,6 +61,21 @@ namespace Servicio
             {
                 conexion.Open();
                 comando.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        public int ejecutarAccionScalar()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                return int.Parse(comando.ExecuteScalar().ToString());
             }
             catch (Exception ex)
             {
